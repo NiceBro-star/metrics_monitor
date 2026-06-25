@@ -8,7 +8,7 @@ import (
 )
 
 // SSHExecPipe 通过密码认证，启动 bash 执行命令（支持管道）
-func SSHExecPipe(host, user, password, cmd string) (string, string, error) {
+func SSHExecPipe(host, port, user, password, cmd string) (string, string, error) {
 	config := &ssh.ClientConfig{
 		User: user,
 		Auth: []ssh.AuthMethod{
@@ -18,7 +18,7 @@ func SSHExecPipe(host, user, password, cmd string) (string, string, error) {
 		Timeout:         10 * time.Second,
 	}
 
-	client, err := ssh.Dial("tcp", host+":22", config)
+	client, err := ssh.Dial("tcp", host+":"+port, config)
 	if err != nil {
 		return "", "", err
 	}

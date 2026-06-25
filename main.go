@@ -6,17 +6,16 @@ import (
 )
 
 func main() {
-	// 示例：带管道、awk、grep 的复杂命令
-	cmd := `
-		uname -a 2>1
-	`
+	host1 := api.HOSTINFO{
+		Host:     "172.21.72.2",
+		Port:     "22",
+		Username: "root",
+		Password: "Admin@9000",
+	}
 
-	stdout, stderr, err := api.SSHExecPipe("172.21.72.2", "root", "Admin@9000", cmd)
-	if err != nil {
-		fmt.Printf("执行出错: %v\n", err)
-	}
-	if stderr != "" {
-		fmt.Printf("STDERR:\n%s\n", stderr)
-	}
-	fmt.Printf("STDOUT:\n%s\n", stdout)
+	monitorRes := api.MonitorTemplate1(host1)
+	fmt.Println(monitorRes.LoadBalance)
+	fmt.Println(monitorRes.CPUUsed)
+	fmt.Println(monitorRes.MEMUsed)
+
 }
