@@ -1,29 +1,9 @@
 package api
 
-var HOST1 = HOSTINFO{
-	Host:     "172.21.72.2",
-	Port:     "22",
-	Username: "root",
-	Password: "Admin@9000",
-}
-
-var HOST2 = HOSTINFO{
-	Host:     "172.21.72.3",
-	Port:     "22",
-	Username: "root",
-	Password: "Admin@9000",
-}
-
-var HOST3 = HOSTINFO{
-	Host:     "172.21.72.22",
-	Port:     "22",
-	Username: "root",
-	Password: "123456",
-}
-
-var HOST4 = HOSTINFO{
-	Host:     "172.21.72.23",
-	Port:     "22",
-	Username: "root",
-	Password: "123456",
+var HOSTS = []HOSTINFO{
+	{"172.21.72.2", "22", "root", "Admin@9000"},
+	{"172.21.72.3", "22", "root", "Admin@9000"},
+	{"172.21.72.22", "22", "root", "123456"},
+	{"172.21.72.23", "22", "root", "123456"},
+	{"172.20.59.100", "57758", "root", "6Tx4k2T9@100"},
 }
